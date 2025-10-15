@@ -51,7 +51,7 @@ const CostumePreCheckout = () => {
   }, [calculateDays, costume.pricePerDay]);
 
   const handleContinue = () => {
-    if (!startDate || !endDate) {
+    if (!startDate || !endDate || !selectedSize) {
       return;
     }
     if (calculateDays < costume.minRentalDays) {
@@ -65,6 +65,7 @@ const CostumePreCheckout = () => {
         rentalCost: calculateTotal,
         deposit: costume.deposit,
         total: calculateTotal + costume.deposit,
+        size: selectedSize,
         notes
       }
     });
