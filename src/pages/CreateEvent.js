@@ -51,12 +51,40 @@ const CreateEvent = () => {
     });
   };
 
+  const addTicketType = () => {
+    const newId = Math.max(...ticketTypes.map(t => t.id), 0) + 1;
+    setTicketTypes([...ticketTypes, { id: newId, name: '', price: '' }]);
+  };
+
+  const removeTicketType = (id) => {
+    if (ticketTypes.length > 1) {
+      setTicketTypes(ticketTypes.filter(ticket => ticket.id !== id));
+    }
+  };
+
+  const handleTicketChange = (id, field, value) => {
+    setTicketTypes(ticketTypes.map(ticket => 
+      ticket.id === id ? { ...ticket, [field]: value } : ticket
+    ));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.title || !formData.date || !formData.location) {
       toast({
         title: 'Error',
         description: 'Please fill in all required fields',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    // Validate ticket types
+    const hasValidTicket = ticketTypes.some(ticket => ticket.name && ticket.price);
+    if (!hasValidTicket) {
+      toast({
+        title: 'Error',
+        description: 'Please add at least one ticket type with name and price',
         variant: 'destructive'
       });
       return;
