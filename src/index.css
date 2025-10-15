@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Custom Color Palette */
+:root {
+  /* Primary Brand Colors */
+  --primary: #d400a5;
+  --primary-dark: #a3007d;
+  --primary-light: #ff33d2;
+
+  /* Secondary Colors */
+  --secondary: #5300cc;
+  --secondary-dark: #3d0099;
+  --secondary-light: #7a33ff;
+
+  /* Neutral Colors */
+  --background: #ffffff;
+  --surface: #f8f9ff;
+  --surface-light: #ffffff;
+  --border: #e6e8f0;
+
+  /* Text Colors */
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-tertiary: #6b6b8a;
+
+  /* Status Colors */
+  --success: #00cc7a;
+  --warning: #e6b400;
+  --error: #d93636;
+  --info: #00c4cc;
+
+  /* Accent Colors */
+  --accent-1: #e0166a;
+  --accent-2: #00c4cc;
+  --accent-3: #e65c00;
+  --accent-4: #7ae67a;
+
+  /* Gradients */
+  --hero-gradient: linear-gradient(
+    135deg,
+    #7a33ff 0%,
+    #ff33d2 50%,
+    #ff8b33 100%
+  );
+  --button-primary: linear-gradient(45deg, #e0166a, #7a33ff);
+  --card-gradient: linear-gradient(
+    180deg,
+    rgba(122, 51, 255, 0.1) 0%,
+    rgba(255, 51, 210, 0.05) 100%
+  );
+
+  /* Ticket-specific colors */
+  --ticket-vip: var(--accent-1);
+  --ticket-regular: var(--secondary);
+  --ticket-premium: var(--accent-3);
+
+  /* Rental status */
+  --rental-available: var(--success);
+  --rental-booked: var(--accent-3);
+  --rental-maintenance: var(--warning);
+
+  /* Shadcn compatibility */
+  --foreground: #1a1a2e;
+  --card: #ffffff;
+  --card-foreground: #1a1a2e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a2e;
+  --primary-foreground: #ffffff;
+  --secondary-foreground: #1a1a2e;
+  --muted: #f8f9ff;
+  --muted-foreground: #6b6b8a;
+  --accent: #f8f9ff;
+  --accent-foreground: #1a1a2e;
+  --destructive: #d93636;
+  --destructive-foreground: #ffffff;
+  --input: #e6e8f0;
+  --ring: #d400a5;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Primary Brand Colors */
+  --primary: #ff00c7;
+  --primary-dark: #cc0099;
+  --primary-light: #ff33d2;
+
+  /* Secondary Colors */
+  --secondary: #6a00ff;
+  --secondary-dark: #5300cc;
+  --secondary-light: #8833ff;
+
+  /* Neutral Colors */
+  --background: #0a0a14;
+  --surface: #1a1a2e;
+  --surface-light: #252547;
+  --border: #2d2d4d;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8d6;
+  --text-tertiary: #8a8aa3;
+
+  /* Status Colors */
+  --success: #00ff9d;
+  --warning: #ffd166;
+  --error: #ff4b4b;
+  --info: #00f7ff;
+
+  /* Accent Colors */
+  --accent-1: #ff1c7a;
+  --accent-2: #00f7ff;
+  --accent-3: #ff6b00;
+  --accent-4: #98ff98;
+
+  /* Gradients */
+  --hero-gradient: linear-gradient(
+    135deg,
+    #6a00ff 0%,
+    #ff00c7 50%,
+    #ff6b00 100%
+  );
+  --button-primary: linear-gradient(45deg, #ff1c7a, #6a00ff);
+  --card-gradient: linear-gradient(
+    180deg,
+    rgba(106, 0, 255, 0.15) 0%,
+    rgba(255, 28, 122, 0.08) 100%
+  );
+
+  /* Ticket-specific colors */
+  --ticket-vip: var(--accent-1);
+  --ticket-regular: var(--secondary);
+  --ticket-premium: var(--accent-3);
+
+  /* Rental status */
+  --rental-available: var(--success);
+  --rental-booked: var(--accent-3);
+  --rental-maintenance: var(--warning);
+
+  /* Shadcn compatibility */
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --primary-foreground: #ffffff;
+  --secondary-foreground: #ffffff;
+  --muted: #252547;
+  --muted-foreground: #8a8aa3;
+  --accent: #252547;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4b4b;
+  --destructive-foreground: #ffffff;
+  --input: #2d2d4d;
+  --ring: #ff00c7;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    @layer base {
+      [data-debug-wrapper="true"] {
+        display: contents !important;
+      }
+
+      [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+      }
+    }
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
