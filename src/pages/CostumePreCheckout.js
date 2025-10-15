@@ -296,16 +296,16 @@ const CostumePreCheckout = () => {
 
                   <Button
                     onClick={handleContinue}
-                    disabled={!startDate || !endDate || calculateDays < costume.minRentalDays}
+                    disabled={!startDate || !endDate || !selectedSize || calculateDays < costume.minRentalDays}
                     className="w-full py-6 text-lg font-semibold text-white rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ background: 'var(--button-primary)' }}
                   >
                     Continue to Checkout
                   </Button>
 
-                  {(!startDate || !endDate) && (
+                  {(!startDate || !endDate || !selectedSize) && (
                     <p className="text-sm text-[var(--text-secondary)] text-center mt-4">
-                      Please select rental dates
+                      {!selectedSize ? 'Please select a size' : 'Please select rental dates'}
                     </p>
                   )}
                 </CardContent>
