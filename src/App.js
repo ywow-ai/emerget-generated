@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Toaster } from "./components/ui/toaster";
 import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Feed from "./pages/Feed";
 import Events from "./pages/Events";
@@ -30,7 +31,8 @@ function App() {
       <BrowserRouter>
         <div className="App min-h-screen bg-[var(--background)]">
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<><Navigation /><Home /></>} />
+            <Route path="/landing" element={<Landing />} />
             <Route path="/feed" element={<><Navigation /><Feed /></>} />
             <Route path="/events" element={<><Navigation /><Events /></>} />
             <Route path="/events/:id" element={<><Navigation /><EventDetail /></>} />
