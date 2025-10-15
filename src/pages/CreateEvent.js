@@ -257,51 +257,67 @@ const CreateEvent = () => {
               </CardContent>
             </Card>
 
-            {/* Pricing */}
+            {/* Ticket Types */}
             <Card className="border-[var(--border)]">
               <CardContent className="p-6">
-                <h2 className="text-xl font-bold text-[var(--text-primary)] mb-6">Pricing & Capacity</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-xl font-bold text-[var(--text-primary)]">Ticket Types</h2>
+                  <Button
+                    type="button"
+                    onClick={addTicketType}
+                    variant="outline"
+                    size="sm"
+                    className="rounded-lg"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Add Ticket Type
+                  </Button>
+                </div>
                 
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      name="isFree"
-                      checked={formData.isFree}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 rounded border-[var(--border)]"
-                    />
-                    <label className="text-sm font-medium text-[var(--text-primary)]">This is a free event</label>
-                  </div>
-
-                  {!formData.isFree && (
-                    <div>
-                      <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2">Ticket Price (IDR) *</label>
-                      <Input
-                        name="price"
-                        type="number"
-                        value={formData.price}
-                        onChange={handleInputChange}
-                        placeholder="Enter ticket price"
-                        required={!formData.isFree}
-                        className="border-[var(--border)]"
-                      />
+                  {ticketTypes.map((ticket, index) => (
+                    <div key={ticket.id} className="flex items-end gap-3 p-4 bg-[var(--surface)] rounded-lg">
+                      <div className="flex-1">
+                        <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
+                          Ticket Name *
+                        </label>
+                        <Input
+                          value={ticket.name}
+                          onChange={(e) => handleTicketChange(ticket.id, 'name', e.target.value)}
+                          placeholder="e.g., General, VIP, Early Bird"
+                          className="border-[var(--border)]"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2">
+                          Price (IDR) *
+                        </label>
+                        <Input
+                          type="number"
+                          value={ticket.price}
+                          onChange={(e) => handleTicketChange(ticket.id, 'price', e.target.value)}
+                          placeholder="Enter price"
+                          className="border-[var(--border)]"
+                        />
+                      </div>
+                      {ticketTypes.length > 1 && (
+                        <Button
+                          type="button"
+                          onClick={() => removeTicketType(ticket.id)}
+                          variant="outline"
+                          size="sm"
+                          className="rounded-lg text-[var(--error)] hover:bg-[var(--error)] hover:text-white"
+                        >
+                          <X className="w-4 h-4" />
+                        </Button>
+                      )}
                     </div>
-                  )}
-
-                  <div>
-                    <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2">Maximum Attendees *</label>
-                    <Input
-                      name="maxAttendees"
-                      type="number"
-                      value={formData.maxAttendees}
-                      onChange={handleInputChange}
-                      placeholder="Enter max number of attendees"
-                      required
-                      className="border-[var(--border)]"
-                    />
-                  </div>
+                  ))}
                 </div>
+                
+                <p className="text-xs text-[var(--text-secondary)] mt-4">
+                  Add multiple ticket types with different pricing (e.g., General, VIP, Student, etc.)
+                </p>
               </CardContent>
             </Card>
 
