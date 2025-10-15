@@ -15,7 +15,10 @@ const CostumePreCheckout = () => {
   
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [selectedSize, setSelectedSize] = useState('');
   const [notes, setNotes] = useState('');
+
+  const availableSizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('id-ID', {
