@@ -11,7 +11,6 @@ const Navigation = () => {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/feed', label: 'Feed', icon: Users },
     { path: '/events', label: 'Events', icon: Calendar },
     { path: '/costumes', label: 'Costumes', icon: Shirt },
     { path: '/profile', label: 'Profile', icon: User }
