@@ -165,7 +165,7 @@ const Events = () => {
         </div>
 
         {/* Events Grid/List */}
-        <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
+        <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-5' : 'space-y-5'}>
           {filteredEvents.map((event) => (
             <Link
               key={event.id}
