@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "../contexts/ThemeContext";
-import {
-  Home,
-  Users,
-  Calendar,
-  Shirt,
-  User,
-  Menu,
-  X,
-  Sun,
-  Moon,
-} from "lucide-react";
-import { Button } from "./ui/button";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
+import { Home, Users, Calendar, Shirt, User, Menu, X, Sun, Moon } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Navigation = () => {
   const location = useLocation();
@@ -20,11 +10,11 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { path: "/", label: "Home", icon: Home },
-    { path: "/feed", label: "Feed", icon: Users },
-    { path: "/events", label: "Events", icon: Calendar },
-    { path: "/costumes", label: "Costumes", icon: Shirt },
-    { path: "/profile", label: "Profile", icon: User },
+    { path: '/', label: 'Home', icon: Home },
+    { path: '/feed', label: 'Feed', icon: Users },
+    { path: '/events', label: 'Events', icon: Calendar },
+    { path: '/costumes', label: 'Costumes', icon: Shirt },
+    { path: '/profile', label: 'Profile', icon: User }
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -37,21 +27,10 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: "var(--hero-gradient)" }}
-              >
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'var(--hero-gradient)' }}>
                 <Shirt className="w-6 h-6 text-white" />
               </div>
-              <span
-                className="text-xl font-bold"
-                style={{
-                  background: "var(--hero-gradient)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span className="text-xl font-bold" style={{ background: 'var(--hero-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 CosplayHub
               </span>
             </Link>
@@ -64,8 +43,8 @@ const Navigation = () => {
                   to={path}
                   className={`px-4 py-2 rounded-lg transition-all duration-200 flex items-center space-x-2 ${
                     isActive(path)
-                      ? "text-[var(--primary)] font-medium"
-                      : "text-[var(--text-secondary)] hover:text-[var(--primary)] hover:bg-[var(--surface-light)]"
+                      ? 'text-[var(--primary)] font-medium'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--primary)] hover:bg-[var(--surface-light)]'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -81,7 +60,7 @@ const Navigation = () => {
                 className="p-2 rounded-lg hover:bg-[var(--surface-light)] transition-all duration-200"
                 aria-label="Toggle theme"
               >
-                {theme === "light" ? (
+                {theme === 'light' ? (
                   <Moon className="w-5 h-5 text-[var(--text-secondary)]" />
                 ) : (
                   <Sun className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -93,10 +72,7 @@ const Navigation = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button
-                  className="rounded-lg text-white"
-                  style={{ background: "var(--button-primary)" }}
-                >
+                <Button className="rounded-lg text-white" style={{ background: 'var(--button-primary)' }}>
                   Sign Up
                 </Button>
               </Link>
@@ -109,21 +85,10 @@ const Navigation = () => {
       <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[var(--surface)] border-b border-[var(--border)] backdrop-blur-lg bg-opacity-90">
         <div className="flex justify-between items-center h-16 px-4">
           <Link to="/" className="flex items-center space-x-2">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "var(--hero-gradient)" }}
-            >
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'var(--hero-gradient)' }}>
               <Shirt className="w-5 h-5 text-white" />
             </div>
-            <span
-              className="text-lg font-bold"
-              style={{
-                background: "var(--hero-gradient)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="text-lg font-bold" style={{ background: 'var(--hero-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               CosplayHub
             </span>
           </Link>
@@ -134,7 +99,7 @@ const Navigation = () => {
               className="p-2 rounded-lg hover:bg-[var(--surface-light)] transition-all duration-200"
               aria-label="Toggle theme"
             >
-              {theme === "light" ? (
+              {theme === 'light' ? (
                 <Moon className="w-5 h-5 text-[var(--text-secondary)]" />
               ) : (
                 <Sun className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -164,10 +129,7 @@ const Navigation = () => {
                 </Button>
               </Link>
               <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
-                <Button
-                  className="w-full rounded-lg text-white"
-                  style={{ background: "var(--button-primary)" }}
-                >
+                <Button className="w-full rounded-lg text-white" style={{ background: 'var(--button-primary)' }}>
                   Sign Up
                 </Button>
               </Link>
@@ -185,13 +147,13 @@ const Navigation = () => {
               to={path}
               className={`flex flex-col items-center justify-center space-y-1 transition-all duration-200 ${
                 isActive(path)
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--text-secondary)]"
+                  ? 'text-[var(--primary)]'
+                  : 'text-[var(--text-secondary)]'
               }`}
             >
-              <Icon
-                className={`w-6 h-6 ${isActive(path) ? "scale-110" : ""}`}
-              />
+              <Icon className={`w-6 h-6 ${
+                isActive(path) ? 'scale-110' : ''
+              }`} />
               <span className="text-xs font-medium">{label}</span>
             </Link>
           ))}

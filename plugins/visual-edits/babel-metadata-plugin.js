@@ -6,7 +6,7 @@ const fs = require("fs");
 // ───────────────────────────────────────────────────────────────────────────────
 // ===== Dynamic composite detection (auto-exclude) =====
 const EXTENSIONS = [".tsx", ".ts", ".jsx", ".js"];
-const PROJECT_ROOT = path.resolve(__dirname, "../.."); // frontend root (../../ from plugins/visual-edits/)
+const PROJECT_ROOT = path.resolve(__dirname, '../..'); // frontend root (../../ from plugins/visual-edits/)
 const SRC_ALIAS = path.resolve(PROJECT_ROOT, "src");
 
 const RESOLVE_CACHE = new Map(); // key: fromFile::source -> absPath | null

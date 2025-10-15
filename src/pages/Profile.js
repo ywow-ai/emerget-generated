@@ -1,41 +1,27 @@
-import React, { useState } from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../components/ui/tabs";
-import { mockUsers } from "../data/mock";
-import { mockPosts } from "../data/mock";
-import { mockEvents } from "../data/mockEvents";
-import { mockCostumes } from "../data/mockCostumes";
-import {
-  Settings,
-  MapPin,
-  Calendar,
-  Users,
-  Heart,
-  Shirt,
-  Badge,
-  Edit,
-} from "lucide-react";
+import React, { useState } from 'react';
+import { Card, CardContent } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { mockUsers } from '../data/mock';
+import { mockPosts } from '../data/mock';
+import { mockEvents } from '../data/mockEvents';
+import { mockCostumes } from '../data/mockCostumes';
+import { Settings, MapPin, Calendar, Users, Heart, Shirt, Badge, Edit } from 'lucide-react';
 
 const Profile = () => {
   const currentUser = mockUsers[0];
-  const [activeTab, setActiveTab] = useState("posts");
+  const [activeTab, setActiveTab] = useState('posts');
 
-  const userPosts = mockPosts.filter((post) => post.userId === currentUser.id);
+  const userPosts = mockPosts.filter(post => post.userId === currentUser.id);
   const userEvents = mockEvents.slice(0, 2);
   const userCostumes = mockCostumes.slice(0, 3);
-  const savedItems = mockPosts.filter((post) => post.isBookmarked);
+  const savedItems = mockPosts.filter(post => post.isBookmarked);
 
   const stats = [
-    { label: "Posts", value: userPosts.length, icon: Users },
-    { label: "Events", value: userEvents.length, icon: Calendar },
-    { label: "Costumes", value: userCostumes.length, icon: Shirt },
-    { label: "Followers", value: "1.2K", icon: Heart },
+    { label: 'Posts', value: userPosts.length, icon: Users },
+    { label: 'Events', value: userEvents.length, icon: Calendar },
+    { label: 'Costumes', value: userCostumes.length, icon: Shirt },
+    { label: 'Followers', value: '1.2K', icon: Heart }
   ];
 
   return (
@@ -61,27 +47,29 @@ const Profile = () => {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                   <div>
-                    <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-1">
-                      {currentUser.name}
-                    </h1>
-                    <p className="text-[var(--text-secondary)]">
-                      {currentUser.username}
-                    </p>
+                    <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-1">{currentUser.name}</h1>
+                    <p className="text-[var(--text-secondary)]">{currentUser.username}</p>
                   </div>
                   <div className="flex items-center gap-2 mt-3 md:mt-0">
-                    <Button variant="outline" size="sm" className="rounded-lg">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="rounded-lg"
+                    >
                       <Edit className="w-4 h-4 mr-2" />
                       Edit Profile
                     </Button>
-                    <Button variant="outline" size="sm" className="rounded-lg">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="rounded-lg"
+                    >
                       <Settings className="w-4 h-4" />
                     </Button>
                   </div>
                 </div>
 
-                <p className="text-[var(--text-secondary)] mb-4">
-                  {currentUser.bio}
-                </p>
+                <p className="text-[var(--text-secondary)] mb-4">{currentUser.bio}</p>
 
                 <div className="flex items-center justify-center md:justify-start text-sm text-[var(--text-secondary)] mb-4">
                   <MapPin className="w-4 h-4 mr-1" />
@@ -96,13 +84,9 @@ const Profile = () => {
                       <div key={index} className="text-center">
                         <div className="flex items-center justify-center mb-1">
                           <Icon className="w-4 h-4 text-[var(--primary)] mr-1" />
-                          <span className="text-xl font-bold text-[var(--text-primary)]">
-                            {stat.value}
-                          </span>
+                          <span className="text-xl font-bold text-[var(--text-primary)]">{stat.value}</span>
                         </div>
-                        <span className="text-xs text-[var(--text-secondary)]">
-                          {stat.label}
-                        </span>
+                        <span className="text-xs text-[var(--text-secondary)]">{stat.label}</span>
                       </div>
                     );
                   })}
@@ -115,18 +99,10 @@ const Profile = () => {
         {/* Tabs */}
         <Tabs defaultValue="posts" className="w-full">
           <TabsList className="w-full grid grid-cols-4 mb-6 bg-[var(--surface)] p-1 rounded-lg">
-            <TabsTrigger value="posts" className="rounded-lg">
-              Postingan
-            </TabsTrigger>
-            <TabsTrigger value="events" className="rounded-lg">
-              Event Saya
-            </TabsTrigger>
-            <TabsTrigger value="costumes" className="rounded-lg">
-              Kostum Saya
-            </TabsTrigger>
-            <TabsTrigger value="saved" className="rounded-lg">
-              Disimpan
-            </TabsTrigger>
+            <TabsTrigger value="posts" className="rounded-lg">Postingan</TabsTrigger>
+            <TabsTrigger value="events" className="rounded-lg">Event Saya</TabsTrigger>
+            <TabsTrigger value="costumes" className="rounded-lg">Kostum Saya</TabsTrigger>
+            <TabsTrigger value="saved" className="rounded-lg">Disimpan</TabsTrigger>
           </TabsList>
 
           {/* Posts Tab */}
@@ -134,20 +110,13 @@ const Profile = () => {
             {userPosts.length === 0 ? (
               <div className="text-center py-20">
                 <Users className="w-16 h-16 mx-auto mb-4 text-[var(--text-tertiary)]" />
-                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-                  No posts yet
-                </h3>
-                <p className="text-[var(--text-secondary)]">
-                  Start sharing your cosplay journey!
-                </p>
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">No posts yet</h3>
+                <p className="text-[var(--text-secondary)]">Start sharing your cosplay journey!</p>
               </div>
             ) : (
               <div className="grid grid-cols-3 gap-2">
                 {userPosts.map((post) => (
-                  <div
-                    key={post.id}
-                    className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
-                  >
+                  <div key={post.id} className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group">
                     <img
                       src={post.images[0]}
                       alt="Post"
@@ -170,26 +139,16 @@ const Profile = () => {
             {userEvents.length === 0 ? (
               <div className="text-center py-20">
                 <Calendar className="w-16 h-16 mx-auto mb-4 text-[var(--text-tertiary)]" />
-                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-                  No events created
-                </h3>
-                <p className="text-[var(--text-secondary)]">
-                  Create your first event and bring the community together!
-                </p>
-                <Button
-                  className="mt-4 rounded-lg text-white"
-                  style={{ background: "var(--button-primary)" }}
-                >
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">No events created</h3>
+                <p className="text-[var(--text-secondary)]">Create your first event and bring the community together!</p>
+                <Button className="mt-4 rounded-lg text-white" style={{ background: 'var(--button-primary)' }}>
                   Create Event
                 </Button>
               </div>
             ) : (
               <div className="space-y-4">
                 {userEvents.map((event) => (
-                  <Card
-                    key={event.id}
-                    className="border-[var(--border)] hover:shadow-lg transition-all duration-300"
-                  >
+                  <Card key={event.id} className="border-[var(--border)] hover:shadow-lg transition-all duration-300">
                     <CardContent className="p-4 flex gap-4">
                       <img
                         src={event.coverImage}
@@ -197,9 +156,7 @@ const Profile = () => {
                         className="w-32 h-32 rounded-lg object-cover"
                       />
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
-                          {event.title}
-                        </h3>
+                        <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">{event.title}</h3>
                         <div className="flex items-center text-sm text-[var(--text-secondary)] mb-2">
                           <Calendar className="w-4 h-4 mr-1" />
                           <span>{event.date}</span>
@@ -221,26 +178,16 @@ const Profile = () => {
             {userCostumes.length === 0 ? (
               <div className="text-center py-20">
                 <Shirt className="w-16 h-16 mx-auto mb-4 text-[var(--text-tertiary)]" />
-                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-                  No costumes listed
-                </h3>
-                <p className="text-[var(--text-secondary)]">
-                  List your costumes for rent and earn money!
-                </p>
-                <Button
-                  className="mt-4 rounded-lg text-white"
-                  style={{ background: "var(--button-primary)" }}
-                >
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">No costumes listed</h3>
+                <p className="text-[var(--text-secondary)]">List your costumes for rent and earn money!</p>
+                <Button className="mt-4 rounded-lg text-white" style={{ background: 'var(--button-primary)' }}>
                   Add Costume
                 </Button>
               </div>
             ) : (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {userCostumes.map((costume) => (
-                  <Card
-                    key={costume.id}
-                    className="border-[var(--border)] hover:shadow-lg transition-all duration-300"
-                  >
+                  <Card key={costume.id} className="border-[var(--border)] hover:shadow-lg transition-all duration-300">
                     <div className="relative h-64 overflow-hidden rounded-t-lg">
                       <img
                         src={costume.images[0]}
@@ -249,14 +196,10 @@ const Profile = () => {
                       />
                     </div>
                     <CardContent className="p-4">
-                      <h3 className="text-lg font-bold text-[var(--text-primary)] mb-1">
-                        {costume.characterName}
-                      </h3>
-                      <p className="text-sm text-[var(--text-secondary)] mb-2">
-                        {costume.franchiseName}
-                      </p>
+                      <h3 className="text-lg font-bold text-[var(--text-primary)] mb-1">{costume.characterName}</h3>
+                      <p className="text-sm text-[var(--text-secondary)] mb-2">{costume.franchiseName}</p>
                       <div className="text-lg font-bold text-[var(--primary)]">
-                        Rp {costume.pricePerDay.toLocaleString("id-ID")}/day
+                        Rp {costume.pricePerDay.toLocaleString('id-ID')}/day
                       </div>
                     </CardContent>
                   </Card>
@@ -270,20 +213,13 @@ const Profile = () => {
             {savedItems.length === 0 ? (
               <div className="text-center py-20">
                 <Heart className="w-16 h-16 mx-auto mb-4 text-[var(--text-tertiary)]" />
-                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-                  No saved items
-                </h3>
-                <p className="text-[var(--text-secondary)]">
-                  Bookmark posts to save them for later!
-                </p>
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">No saved items</h3>
+                <p className="text-[var(--text-secondary)]">Bookmark posts to save them for later!</p>
               </div>
             ) : (
               <div className="grid grid-cols-3 gap-2">
                 {savedItems.map((post) => (
-                  <div
-                    key={post.id}
-                    className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
-                  >
+                  <div key={post.id} className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group">
                     <img
                       src={post.images[0]}
                       alt="Saved post"
