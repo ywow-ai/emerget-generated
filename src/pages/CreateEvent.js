@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
-import { ArrowLeft, Upload, X, Calendar as CalendarIcon } from 'lucide-react';
+import { ArrowLeft, Upload, X, Calendar as CalendarIcon, Plus } from 'lucide-react';
 import { Calendar } from '../components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
 import { eventCategories, eventCities } from '../data/mockEvents';
