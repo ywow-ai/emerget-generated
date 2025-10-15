@@ -14,18 +14,17 @@ const CreateEvent = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    category: 'Festival',
     city: 'Jakarta',
     location: '',
     date: null,
     endDate: null,
     time: '',
-    price: '',
-    maxAttendees: '',
-    isFree: false,
     coverImage: null,
     tags: ''
   });
+  const [ticketTypes, setTicketTypes] = useState([
+    { id: 1, name: '', price: '' }
+  ]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
