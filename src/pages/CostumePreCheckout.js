@@ -127,6 +127,32 @@ const CostumePreCheckout = () => {
               </CardContent>
             </Card>
 
+            {/* Size Selection */}
+            <Card className="border-[var(--border)]">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">Select Size</h3>
+                <div className="flex items-center gap-3 flex-wrap">
+                  {availableSizes.map((size) => (
+                    <button
+                      key={size}
+                      type="button"
+                      onClick={() => setSelectedSize(size)}
+                      className={`px-6 py-3 rounded-lg border-2 font-semibold transition-all duration-200 ${
+                        selectedSize === size
+                          ? 'border-[var(--primary)] bg-[var(--primary)] text-white'
+                          : 'border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--primary)]'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-sm text-[var(--text-secondary)] mt-4">
+                  Original costume size: <span className="font-semibold text-[var(--text-primary)]">{costume.size}</span>
+                </p>
+              </CardContent>
+            </Card>
+
             {/* Date Selection */}
             <Card className="border-[var(--border)]">
               <CardContent className="p-6">
